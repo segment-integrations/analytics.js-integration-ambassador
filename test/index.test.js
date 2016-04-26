@@ -1,3 +1,4 @@
+'use strict';
 
 var Analytics = require('analytics.js-core').constructor;
 var integration = require('analytics.js-integration');
@@ -7,7 +8,7 @@ var Ambassador = require('../lib/');
 
 describe('Ambassador', function() {
   var analytics;
-  var Ambassador;
+  var ambassador;
   var options = {
     uid: '<PLACE_TEST_UID_HERE>'
   };
