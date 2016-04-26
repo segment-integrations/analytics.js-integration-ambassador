@@ -34,7 +34,7 @@ describe('Ambassador', function() {
       .option('uid', ''));
   });
 
-  describe('before loading', function() {
+  xdescribe('before loading', function() {
     beforeEach(function() {
       analytics.stub(ambassador, 'load');
     });
