@@ -33,23 +33,4 @@ describe('Ambassador', function() {
       .global('_mbsy')
       .option('uid', ''));
   });
-
-  xdescribe('before loading', function() {
-    beforeEach(function() {
-      analytics.stub(ambassador, 'load');
-    });
-
-    describe('#initialize', function() {
-      it('should create the window._mbsy object', function() {
-        analytics.assert(!window._mbsy);
-        analytics.initialize();
-        analytics.assert(window._mbsy);
-      });
-
-      it('should call #load', function() {
-        analytics.initialize();
-        analytics.called(Ambassador.load);
-      });
-    });
-  });
 });
