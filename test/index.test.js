@@ -10,7 +10,7 @@ describe('Ambassador', function() {
   var analytics;
   var ambassador;
   var options = {
-    uid: '11111111-1111-1111-1111-111111111111'
+    uid: 'f1af0eb5-9001-4fc2-872d-2a4afcb46c12'
   };
 
   beforeEach(function() {
@@ -30,7 +30,6 @@ describe('Ambassador', function() {
 
   it('should have the right settings', function() {
     analytics.compare(Ambassador, integration('Ambassador')
-      .global('_mbsy')
       .global('mbsy')
       .option('uid', ''));
   });
@@ -41,11 +40,9 @@ describe('Ambassador', function() {
     });
 
     describe('#initialize', function() {
-      it('should create the window._mbsy and window.mbsy object', function() {
-        analytics.assert(!window._mbsy);
+      it('should create the window.mbsy object', function() {
         analytics.assert(!window.mbsy);
         analytics.initialize();
-        analytics.assert(window._mbsy);
         analytics.assert(window.mbsy);
       });
 
