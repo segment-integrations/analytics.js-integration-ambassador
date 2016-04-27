@@ -10,7 +10,7 @@ describe('Ambassador', function() {
   var analytics;
   var ambassador;
   var options = {
-    uid: 'f1af0eb5-9001-4fc2-872d-2a4afcb46c12'
+    uid: '11111111-1111-1111-1111-111111111111'
   };
 
   beforeEach(function() {
