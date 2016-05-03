@@ -86,12 +86,12 @@ describe('Ambassador', function() {
       });
 
       it('should send traits and options', function() {
-        analytics.identify({ email: 'test@example.com' }, { enrollCampaign: 1, enrollGroups: '1,2,3' });
+        analytics.identify({ email: 'test@example.com' }, { Ambassador: { enrollCampaign: 1, enrollGroups: '1,2,3' } });
         analytics.called(window.mbsy.identify, { email: 'test@example.com' }, { enrollCampaign: 1, enrollGroups: '1,2,3' });
       });
 
       it('should send an id and options', function() {
-        analytics.identify('id', { enrollCampaign: 1, enrollGroups: '1,2,3' });
+        analytics.identify('id', {}, { Ambassador: { enrollCampaign: 1, enrollGroups: '1,2,3' } });
         analytics.called(window.mbsy.identify, 'id', { enrollCampaign: 1, enrollGroups: '1,2,3' });
       });
     });
