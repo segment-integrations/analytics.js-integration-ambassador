@@ -94,6 +94,11 @@ describe('Ambassador', function() {
         analytics.identify('id', {}, { Ambassador: { enrollCampaign: 1, enrollGroups: '1,2,3' } });
         analytics.called(window.mbsy.identify, 'id', { enrollCampaign: 1, enrollGroups: '1,2,3' });
       });
+
+      it('should send an id, traits and options', function() {
+        analytics.identify('id', { email: 'test@example.com' }, { Ambassador: { enrollCampaign: 1, enrollGroups: '1,2,3' } });
+        analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { enrollCampaign: 1, enrollGroups: '1,2,3' });
+      });
     });
   });
 });
