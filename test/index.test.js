@@ -100,5 +100,21 @@ describe('Ambassador', function() {
         analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { enrollCampaign: 1, enrollGroups: '1,2,3' });
       });
     });
+
+    describe('#track', function() {
+      beforeEach(function() {
+        analytics.stub(window.mbsy, 'track');
+      });
+
+      it('should not send event if conversion option is not provided', function() {
+        analytics.track('Event Name');
+        analytics.didNotCall(window.mbsy.track);
+      });
+
+      it('should send an event, properties and options', function() {
+        analytics.track('event', { revenue: 1 }, { Ambassador: { conversion: true } });
+        analytics.called(window.mbsy.track, 'event', { revenue: 1 }, { conversion: true });
+      });
+    });
   });
 });
