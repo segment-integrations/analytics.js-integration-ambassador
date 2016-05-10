@@ -72,32 +72,32 @@ describe('Ambassador', function() {
 
       it('should send an id', function() {
         analytics.identify('id');
-        analytics.called(window.mbsy.identify, 'id');
+        analytics.called(window.mbsy.identify, 'id', {}, { identifyType: 'segment' });
       });
 
       it('should send traits', function() {
         analytics.identify({ email: 'test@example.com' });
-        analytics.called(window.mbsy.identify, { email: 'test@example.com' });
+        analytics.called(window.mbsy.identify, { email: 'test@example.com' }, { identifyType: 'segment' });
       });
 
       it('should send an id and traits', function() {
         analytics.identify('id', { email: 'test@example.com' });
-        analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' });
+        analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { identifyType: 'segment' });
       });
 
       it('should send traits and options', function() {
         analytics.identify({ email: 'test@example.com' }, { Ambassador: { enrollCampaign: 1, enrollGroups: '1,2,3' } });
-        analytics.called(window.mbsy.identify, { email: 'test@example.com' }, { enrollCampaign: 1, enrollGroups: '1,2,3' });
+        analytics.called(window.mbsy.identify, { email: 'test@example.com' }, { enrollCampaign: 1, enrollGroups: '1,2,3', identifyType: 'segment' });
       });
 
       it('should send an id and options', function() {
         analytics.identify('id', {}, { Ambassador: { enrollCampaign: 1, enrollGroups: '1,2,3' } });
-        analytics.called(window.mbsy.identify, 'id', { enrollCampaign: 1, enrollGroups: '1,2,3' });
+        analytics.called(window.mbsy.identify, 'id', {}, { enrollCampaign: 1, enrollGroups: '1,2,3', identifyType: 'segment' });
       });
 
       it('should send an id, traits and options', function() {
         analytics.identify('id', { email: 'test@example.com' }, { Ambassador: { enrollCampaign: 1, enrollGroups: '1,2,3' } });
-        analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { enrollCampaign: 1, enrollGroups: '1,2,3' });
+        analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { enrollCampaign: 1, enrollGroups: '1,2,3', identifyType: 'segment' });
       });
     });
 
