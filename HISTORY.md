@@ -1,3 +1,9 @@
+2.0.1 / 2016-08-03
+==================
+
+  * Use event mapping to determine event type
+  * Use url -> campaign map for track and identify
+
 2.0.0 / 2016-07-12
 ==================
 
