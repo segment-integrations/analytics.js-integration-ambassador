@@ -1,4 +1,4 @@
-2.0.1 / 2016-08-03
+2.1.0 / 2016-08-03
 ==================
 
   * Use event mapping to determine event type
