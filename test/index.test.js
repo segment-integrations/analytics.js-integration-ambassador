@@ -236,6 +236,15 @@ describe('Ambassador', function() {
         analytics.identify('id', { email: 'test@example.com' });
         analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { campaign: 14, identifyType: 'segment' });
       });
+
+      it('should send call identify for campaign matching *．test．com', function() {
+        window.mockLocation = 'http://sub.test.com';
+        ambassador.options.campaigns = {
+          '*．test．com': 14
+        };
+        analytics.identify('id', { email: 'test@example.com' });
+        analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { campaign: 14, identifyType: 'segment' });
+      });
     });
 
     describe('#track', function() {
