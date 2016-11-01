@@ -1,3 +1,8 @@
+2.1.1 / 2016-10-18
+==================
+
+  * Replace dot-like characters with standard period characters
+
 2.1.0 / 2016-08-03
 ==================
 
