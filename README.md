@@ -1,4 +1,5 @@
-# analytics.js-integration-ambassador [![Build Status][ci-badge]][ci-link]
+# analytics.js-integration-ambassador
+[![CircleCI](https://circleci.com/gh/segment-integrations/analytics.js-integration-ambassador.svg?style=svg)](https://circleci.com/gh/segment-integrations/analytics.js-integration-ambassador)
 
 Ambassador integration for [Analytics.js][].
 
