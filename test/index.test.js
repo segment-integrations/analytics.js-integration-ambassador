@@ -245,6 +245,24 @@ describe('Ambassador', function() {
         analytics.identify('id', { email: 'test@example.com' });
         analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { campaign: 14, identifyType: 'segment' });
       });
+
+      it('should return true when shoutie caps are in the url', function() {
+        window.mockLocation = 'http://example6.com/TeSt/eXAMplE';
+        ambassador.options.campaigns = {
+          'example6.com/test/*': 9
+        };
+        analytics.identify('id', { email: 'test@example.com' });
+        analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { campaign: 9, identifyType: 'segment' });
+      });
+
+      it('should return true when shoutie caps are in the browser', function() {
+        window.mockLocation = 'http://example6.com/test/example';
+        ambassador.options.campaigns = {
+          'example6.com/TeST/*': 9
+        };
+        analytics.identify('id', { email: 'test@example.com' });
+        analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { campaign: 9, identifyType: 'segment' });
+      });
     });
 
     describe('#track', function() {
@@ -261,17 +279,6 @@ describe('Ambassador', function() {
         window.mockLocation = 'http://example.com';
         analytics.track('Completed Order', { revenue: 1 });
         analytics.called(window.mbsy.track, 'Completed Order', { revenue: 1, campaign: 1 }, { conversion: true });
-      });
-    });
-
-    describe('url and browser parsing', function() {
-
-      it('should return true when shoutie caps are in the url', function() {
-        window.mockLocation = 'http://example.com/test#/done?query_param1=test&query_param2=test';
-
-        var url = 'example.come/TesT#/dONE';
-        var valid1 = ambassador.isValidUrl(url);
-        expect(valid1).to.be.true
       });
     });
   });
