@@ -263,5 +263,16 @@ describe('Ambassador', function() {
         analytics.called(window.mbsy.track, 'Completed Order', { revenue: 1, campaign: 1 }, { conversion: true });
       });
     });
+
+    describe('url and browser parsing', function() {
+
+      it('should return true when shoutie caps are in the url', function() {
+        window.mockLocation = 'http://example.com/test#/done?query_param1=test&query_param2=test';
+
+        var url = 'example.come/TesT#/dONE';
+        var valid1 = ambassador.isValidUrl(url);
+        expect(valid1).to.be.true
+      });
+    });
   });
 });
