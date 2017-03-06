@@ -246,7 +246,7 @@ describe('Ambassador', function() {
         analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { campaign: 14, identifyType: 'segment' });
       });
 
-      it('should return true when path of url contains mixed case', function() {
+      it('should return true when path of browser contains mixed case', function() {
         window.mockLocation = 'http://example6.com/TeSt/eXAMplE';
         ambassador.options.campaigns = {
           'example6.com/test/*': 9
@@ -255,7 +255,7 @@ describe('Ambassador', function() {
         analytics.called(window.mbsy.identify, 'id', { email: 'test@example.com' }, { campaign: 9, identifyType: 'segment' });
       });
 
-      it('should return true when path of browser contains mixed case', function() {
+      it('should return true when path of url contains mixed case', function() {
         window.mockLocation = 'http://example6.com/test/example';
         ambassador.options.campaigns = {
           'example6.com/TeST/*': 9
